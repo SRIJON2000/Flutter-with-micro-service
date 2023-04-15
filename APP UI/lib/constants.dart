@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:quick_shift/screens/auth_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'data_getter.dart';
 
 var user = FirebaseAuth
     .instance.currentUser; // Get User Data from Firebase Auth Database
@@ -14,7 +18,7 @@ var drawerTextColor = TextStyle(
 
 var myAppBar = AppBar(
   backgroundColor: Colors.grey[900],
-  title: Text('WELCOME '),
+  title: Text('WELCOME ${details[0]["firstname"]}'),
   centerTitle: false,
 );
 
@@ -55,8 +59,16 @@ var myDrawer = Drawer(
           'L O G O U T',
           style: drawerTextColor,
         ),
-        onTap: () {
+        onTap: () async {
           FirebaseAuth.instance.signOut();
+          // final response = await http.post(
+          //     Uri.parse('http://localhost:8000/logout/' + details[0]["email"]));
+          // if (response.statusCode == 200) {
+          //   Navigator.pushReplacement(context,
+          //       MaterialPageRoute(builder: (BuildContext context) {
+          //     return AuthPage();
+          //   }));
+          // }
         },
       ),
     )

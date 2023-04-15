@@ -1,3 +1,4 @@
+from json import JSONDecodeError
 import os
 
 from fastapi import FastAPI, HTTPException
@@ -49,6 +50,22 @@ async def get_request_by_id(id: str):
     return JSONResponse(content=requests)
 
 
+@app.get("/driverrequest/{id}")
+async def get_request_by_id(id: str):
+    request_ref = db.collection("request")
+    query_ref = request_ref.where(u'driverEmail', u'==', id)
+    requests = [doc.to_dict() for doc in query_ref.stream()]
+    return JSONResponse(content=requests)
+
+
+@app.get("/pendingrequest/")
+async def get_pending_request_by_id():
+    request_ref = db.collection("request")
+    query_ref = request_ref.where(u'status', u'==', "Processing")
+    requests = [doc.to_dict() for doc in query_ref.stream()]
+    return JSONResponse(content=requests)
+
+
 @app.get("/nextrequestid")
 async def get_next_request_id():
     last_ref = db.collection('request')
@@ -60,7 +77,7 @@ async def get_next_request_id():
         # return int(result[0]['id']+1)
         return JSONResponse(content=result)
     else:
-        return {}
+        return 1
     # return current_id + 1
 
 
@@ -74,13 +91,29 @@ async def create_request(request: dict):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.put("/update/{document}")
-async def update_request(document: str, data: dict):
-    doc_ref = db.collection(u'request').document(document)
-    doc_ref.update(data)
-    return {"message": "Data updated successfully"}
+@app.put("/updaterequest/{id}")
+async def update_request(id: str, data: dict):
+    collection_ref = db.collection(u'request')
+    query = collection_ref.where(u"id", u'==', id).limit(1)
+    docs = query.stream()
+    for doc in docs:
+        doc_ref = collection_ref.document(doc.id)
+        doc_ref.update(data)
 
 
+async def get_document_id(column_name: str, column_value: str, collection: str):
+
+    collection_ref = db.collection(collection)
+
+    # Create a query to find the document that has the specified column value
+    query = collection_ref.where(column_name, '==', column_value).limit(1)
+
+    # Get the first document that matches the query and return its ID
+    docs = query.stream()
+    for doc in docs:
+        return {"documentid": doc.id}
+
+    return {"message": "No document found that matches the specified criteria."}
 # if __name__ == "__main__":
 #     port = int(os.environ.get("PORT", 8001))
 #     uvicorn.run("main:app", host="0.0.0.0", port=port, log_level="info")

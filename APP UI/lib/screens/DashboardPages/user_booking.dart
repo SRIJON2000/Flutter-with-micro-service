@@ -11,6 +11,9 @@ import 'package:quick_shift/constants.dart';
 import 'package:quick_shift/screens/DashboardPages/user_scaffold.dart';
 import 'package:http/http.dart' as http;
 
+import '../../data_getter.dart';
+import '../auth_page.dart';
+
 class UserBooking extends StatefulWidget {
   UserBooking({super.key});
 
@@ -25,16 +28,16 @@ class _UserBookingState extends State<UserBooking> {
     // TODO: implement initState
 
     super.initState();
-    fetch_bookings();
+    fetch_user_bookings();
     // final document = 'CgWcTpVoeFHI5GKr7NJt';
     // final data = {'userName': 'Srijon'};
     // updateData(document, data);
   }
 
   // ignore: non_constant_identifier_names
-  Future<void> fetch_bookings() async {
+  Future<void> fetch_user_bookings() async {
     final response = await http
-        .get(Uri.parse('http://localhost:8001/request/user@gmail.com'));
+        .get(Uri.parse('http://localhost:8001/request/' + details[0]["email"]));
     if (response.statusCode == 200) {
       setState(() {
         requests = jsonDecode(response.body);
@@ -113,8 +116,16 @@ class _UserBookingState extends State<UserBooking> {
                 style: drawerTextColor,
               ),
               onTap: () async {
-                await FirebaseAuth.instance.signOut();
-                Phoenix.rebirth(context);
+                // await FirebaseAuth.instance.signOut();
+                // Phoenix.rebirth(context);
+                final response = await http.post(Uri.parse(
+                    'http://localhost:8000/logout/' + details[0]["email"]));
+                if (response.statusCode == 200) {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return AuthPage();
+                  }));
+                }
               },
             ),
           )

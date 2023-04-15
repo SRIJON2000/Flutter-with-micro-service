@@ -14,6 +14,7 @@ import 'DashboardPages/dashboard_loader.dart';
 import 'DashboardPages/driver_scaffold.dart';
 import 'DashboardPages/user_scaffold.dart';
 import 'forgot_pw_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInScreen extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -25,6 +26,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  // List details = [];
   // Text Controllers for the sign-in form
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -246,16 +248,18 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: InkWell(
                     onTap: (() async {
                       int y = await signIn();
-                      print(y);
                       if (y == 1) {
-                        print(y);
+                        await fetch_userdetails(
+                            _emailController.text.trim().toString());
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
                                 const UserScaffold()));
                       } else {
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (BuildContext context) =>
-                        //         DriverScaffold()));
+                        await fetch_driverdetails(
+                            _emailController.text.trim().toString());
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                DriverScaffold()));
                       }
                     }),
                     child: Ink(
@@ -319,5 +323,29 @@ class _SignInScreenState extends State<SignInScreen> {
       return result[0]['type'].toString();
     }
     return "";
+  }
+
+  Future<void> fetch_userdetails(email) async {
+    final response =
+        await http.get(Uri.parse('http://localhost:8000/userdetail/' + email));
+    if (response.statusCode == 200) {
+      setState(() {
+        details = jsonDecode(response.body);
+      });
+    } else {
+      throw Exception('Failed to load users');
+    }
+  }
+
+  Future<void> fetch_driverdetails(email) async {
+    final response = await http
+        .get(Uri.parse('http://localhost:8000/driverdetail/' + email));
+    if (response.statusCode == 200) {
+      setState(() {
+        details = jsonDecode(response.body);
+      });
+    } else {
+      throw Exception('Failed to load users');
+    }
   }
 }

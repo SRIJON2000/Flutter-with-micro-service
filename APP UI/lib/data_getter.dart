@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:quick_shift/constants.dart';
 
 // Getting users Table Data
-
+List details = [];
 late String user_firstname = '', user_phoneNumber = '', user_lastname = '';
 
 Future getUser_info() async {

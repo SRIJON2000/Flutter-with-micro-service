@@ -18,6 +18,8 @@ import 'package:geocoding/geocoding.dart' as geoCoding;
 import 'package:quick_shift/data_getter.dart';
 import 'package:quick_shift/screens/DashboardPages/user_booking.dart';
 
+import '../auth_page.dart';
+
 class UserScaffold extends StatefulWidget {
   const UserScaffold({super.key});
 
@@ -140,9 +142,12 @@ class _UserScaffoldState extends State<UserScaffold> {
     final response =
         await http.get(Uri.parse('http://localhost:8001/nextrequestid'));
     if (response.statusCode == 200) {
-      List requests = [];
-      requests = jsonDecode(response.body);
-      return requests[0]['id'] + 1;
+      //List requests = [];
+      int requests = int.parse(response.body);
+      if (requests == 1) {
+        return 1;
+      }
+      return requests + 1;
     } else {
       throw Exception('Failed to load users');
     }
@@ -168,9 +173,9 @@ class _UserScaffoldState extends State<UserScaffold> {
             _searchDestinationController.text.trim().toString(),
         'extraServicesRequired': selectedOptionForExtraService,
         'vehicleType': selectedVeichletype,
-        'userEmail': user!.email,
-        'usertName': '${user_firstname} ${user_lastname}',
-        'userPhoneNo': user_phoneNumber.toString(),
+        'userEmail': details[0]["email"].toString(),
+        'userName': details[0]["firstname"] + " " + details[0]["lastname"],
+        'userPhoneNo': details[0]["phoneNumber"].toString(),
         'driverEmail': 'Assigning...',
         'driverName': 'Assigning...',
         'driverPhoneNo': 'Assigning...',
@@ -236,7 +241,7 @@ class _UserScaffoldState extends State<UserScaffold> {
                                 builder: (context) => UserBooking()),
                           );
                         },
-                        child: const Text("Go to my appointments"),
+                        child: const Text("Go to my bookings"),
                       ),
                     ])));
           },
@@ -329,8 +334,16 @@ class _UserScaffoldState extends State<UserScaffold> {
                 style: drawerTextColor,
               ),
               onTap: () async {
-                await FirebaseAuth.instance.signOut();
-                Phoenix.rebirth(context);
+                // await FirebaseAuth.instance.signOut();
+                // Phoenix.rebirth(context);
+                final response = await http.post(Uri.parse(
+                    'http://localhost:8000/logout/' + details[0]["email"]));
+                if (response.statusCode == 200) {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return AuthPage();
+                  }));
+                }
               },
             ),
           )
