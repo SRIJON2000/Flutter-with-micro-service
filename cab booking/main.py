@@ -91,10 +91,10 @@ async def create_request(request: dict):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.put("/updaterequest/{id}")
+@app.post("/updaterequest/{id}")
 async def update_request(id: str, data: dict):
     collection_ref = db.collection(u'request')
-    query = collection_ref.where(u"id", u'==', id).limit(1)
+    query = collection_ref.where(u"id", u'==', int(id)).limit(1)
     docs = query.stream()
     for doc in docs:
         doc_ref = collection_ref.document(doc.id)

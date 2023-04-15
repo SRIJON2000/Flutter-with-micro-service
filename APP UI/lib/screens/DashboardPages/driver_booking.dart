@@ -118,7 +118,7 @@ class _DriverBookingState extends State<DriverBooking> {
               return Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Container(
-                  height: 200,
+                  height: 250,
                   decoration: BoxDecoration(
                     boxShadow: const [
                       BoxShadow(
@@ -248,8 +248,49 @@ class _DriverBookingState extends State<DriverBooking> {
                         ],
                       ),
                       SizedBox(height: 15),
+                      if (request['status'].toString() == "Accepted") ...[
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color.fromARGB(
+                                  255, 98, 9, 21), //background color of button
+                              side: const BorderSide(
+                                  width: 1,
+                                  color: Color.fromARGB(255, 98, 10,
+                                      10)), //border width and color
+                              elevation: 3, //elevation of button
+                              shape: RoundedRectangleBorder(
+                                  //to set border radius to button
+                                  borderRadius: BorderRadius.circular(10)),
+                              padding: const EdgeInsets.all(
+                                  10) //content padding inside button
+                              ),
+                          onPressed: () async {
+                            final data = {
+                              'status': "Completed",
+                            };
+                            final response = await http.post(
+                              Uri.parse(
+                                  // ignore: prefer_interpolation_to_compose_strings
+                                  'http://localhost:8001/updaterequest/' +
+                                      request['id'].toString()),
+                              headers: <String, String>{
+                                'Content-Type':
+                                    'application/json; charset=UTF-8',
+                              },
+                              body: jsonEncode(data),
+                            );
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                              return DriverBooking();
+                            }));
+                          },
+                          child: const Text("Complete the trip"),
+                        ),
+                      ],
+                      SizedBox(height: 15),
                       Container(
-                        height: 100,
+                        height: 57,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -269,47 +310,14 @@ class _DriverBookingState extends State<DriverBooking> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                // Text(
-                                //   "\nIf Completed then click the below button",
-                                //   style: TextStyle(
-                                //     color: Colors.white,
-                                //     fontSize: 10,
-                                //   ),
-                                // ),
-                                SizedBox(height: 65),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color.fromARGB(255, 98,
-                                          9, 21), //background color of button
-                                      side: const BorderSide(
-                                          width: 1,
-                                          color: Color.fromARGB(255, 98, 10,
-                                              10)), //border width and color
-                                      elevation: 3, //elevation of button
-                                      shape: RoundedRectangleBorder(
-                                          //to set border radius to button
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      padding: const EdgeInsets.all(
-                                          10) //content padding inside button
-                                      ),
-                                  onPressed: () async {
-                                    final data = {
-                                      'status': "Accepted",
-                                    };
-                                    final response = await http.put(
-                                      Uri.parse(
-                                          'http://localhost:8001/updaterequest/' +
-                                              request['id']),
-                                      headers: <String, String>{
-                                        'Content-Type':
-                                            'application/json; charset=UTF-8',
-                                      },
-                                      body: jsonEncode(data),
-                                    );
-                                  },
-                                  child: const Text("Complete the trip"),
+                                Text(
+                                  "\nIf Completed then click the below button",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                  ),
                                 ),
+                                // SizedBox(height: 100),
                               ],
                             ),
                           ),

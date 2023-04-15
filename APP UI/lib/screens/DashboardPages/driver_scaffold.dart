@@ -23,7 +23,7 @@ class DriverScaffold extends StatefulWidget {
 class _UserBookingState extends State<DriverScaffold> {
   List requests = [];
   @override
-  void initState() {
+  initState() {
     // TODO: implement initState
     super.initState();
     fetch_pending_requests();
@@ -262,8 +262,9 @@ class _UserBookingState extends State<DriverScaffold> {
                                   'driverPhoneNo': details[0]['phoneNumber'],
                                   'status': "Accepted",
                                 };
-                                final response = await http.put(
+                                final response = await http.post(
                                   Uri.parse(
+                                      // ignore: prefer_interpolation_to_compose_strings
                                       'http://localhost:8001/updaterequest/' +
                                           request['id'].toString()),
                                   headers: {
@@ -272,7 +273,11 @@ class _UserBookingState extends State<DriverScaffold> {
                                   },
                                   body: jsonEncode(data),
                                 );
-                                setState(() {});
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                  return DriverScaffold();
+                                }));
                               },
                               child: Text(
                                 "Accept",
