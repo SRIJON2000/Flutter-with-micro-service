@@ -1,0 +1,140 @@
+Date : 2022-12-03 15:16:33
+Directory : g:\2.Programming\BITS Project\quick_shift\quick_shift
+Total : 66 files,  4093 codes, 377 comments, 436 blanks, all 4906 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Dart       |         16 |      2,517 |        107 |        158 |      2,782 |
+| C++        |         16 |        502 |        107 |        170 |        779 |
+| XML        |         10 |        471 |         48 |         13 |        532 |
+| JSON       |          7 |        316 |          0 |          4 |        320 |
+| Groovy     |          3 |         92 |          5 |         25 |        122 |
+| Swift      |          4 |         50 |          3 |         12 |         65 |
+| HTML       |          1 |         37 |         16 |          6 |         59 |
+| YAML       |          2 |         37 |         82 |         21 |        140 |
+| CMake      |          2 |         37 |          0 |         12 |         49 |
+| Markdown   |          2 |         13 |          0 |          9 |         22 |
+| Java       |          1 |         13 |          9 |          4 |         26 |
+| Properties |          2 |          8 |          0 |          2 |         10 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                           | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                              |         66 |      4,093 |        377 |        436 |      4,906 |
+| android                                                                                                                        |         14 |        234 |         60 |         41 |        335 |
+| android\app                                                                                                                    |         10 |        190 |         60 |         30 |        280 |
+| android\app\src                                                                                                                |          8 |         80 |         55 |         14 |        149 |
+| android\app\src\debug                                                                                                          |          1 |          4 |          4 |          1 |          9 |
+| android\app\src\main                                                                                                           |          6 |         72 |         47 |         12 |        131 |
+| android\app\src\main\java                                                                                                      |          1 |         13 |          9 |          4 |         26 |
+| android\app\src\main\java\io                                                                                                   |          1 |         13 |          9 |          4 |         26 |
+| android\app\src\main\java\io\flutter                                                                                           |          1 |         13 |          9 |          4 |         26 |
+| android\app\src\main\java\io\flutter\app                                                                                       |          1 |         13 |          9 |          4 |         26 |
+| android\app\src\main\res                                                                                                       |          4 |         26 |         32 |          6 |         64 |
+| android\app\src\main\res\drawable                                                                                              |          1 |          4 |          7 |          2 |         13 |
+| android\app\src\main\res\drawable-v21                                                                                          |          1 |          4 |          7 |          2 |         13 |
+| android\app\src\main\res\values                                                                                                |          1 |          9 |          9 |          1 |         19 |
+| android\app\src\main\res\values-night                                                                                          |          1 |          9 |          9 |          1 |         19 |
+| android\app\src\profile                                                                                                        |          1 |          4 |          4 |          1 |          9 |
+| android\gradle                                                                                                                 |          1 |          5 |          0 |          1 |          6 |
+| android\gradle\wrapper                                                                                                         |          1 |          5 |          0 |          1 |          6 |
+| ios                                                                                                                            |          8 |        231 |          2 |          9 |        242 |
+| ios\Runner                                                                                                                     |          7 |        224 |          2 |          9 |        235 |
+| ios\Runner\Assets.xcassets                                                                                                     |          3 |        148 |          0 |          4 |        152 |
+| ios\Runner\Assets.xcassets\AppIcon.appiconset                                                                                  |          1 |        122 |          0 |          1 |        123 |
+| ios\Runner\Assets.xcassets\LaunchImage.imageset                                                                                |          2 |         26 |          0 |          3 |         29 |
+| ios\Runner\Base.lproj                                                                                                          |          2 |         61 |          2 |          2 |         65 |
+| lib                                                                                                                            |         15 |      2,503 |         97 |        151 |      2,751 |
+| lib\screens                                                                                                                    |         10 |      2,317 |         78 |        123 |      2,518 |
+| lib\screens\DashboardPages                                                                                                     |          5 |      1,377 |         32 |         52 |      1,461 |
+| linux                                                                                                                          |          6 |        112 |         27 |         44 |        183 |
+| linux\flutter                                                                                                                  |          3 |         26 |          9 |         17 |         52 |
+| macos                                                                                                                          |          6 |        454 |          3 |         12 |        469 |
+| macos\Flutter                                                                                                                  |          1 |         16 |          3 |          4 |         23 |
+| macos\Runner                                                                                                                   |          4 |        431 |          0 |          8 |        439 |
+| macos\Runner\Assets.xcassets                                                                                                   |          1 |         68 |          0 |          1 |         69 |
+| macos\Runner\Assets.xcassets\AppIcon.appiconset                                                                                |          1 |         68 |          0 |          1 |         69 |
+| macos\Runner\Base.lproj                                                                                                        |          1 |        343 |          0 |          1 |        344 |
+| test                                                                                                                           |          1 |         14 |         10 |          7 |         31 |
+| web                                                                                                                            |          2 |         72 |         16 |          7 |         95 |
+| windows                                                                                                                        |         11 |        426 |         80 |        137 |        643 |
+| windows\flutter                                                                                                                |          3 |         30 |          9 |         17 |         56 |
+| windows\runner                                                                                                                 |          8 |        396 |         71 |        120 |        587 |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                       | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\README.md                                                                | Markdown   |         10 |          0 |          7 |         17 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\analysis_options.yaml                                                    | YAML       |          3 |         23 |          4 |         30 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\build.gradle                                                 | Groovy     |         56 |          5 |         16 |         77 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\google-services.json                                         | JSON       |         54 |          0 |          0 |         54 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\debug\AndroidManifest.xml                                | XML        |          4 |          4 |          1 |          9 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\main\AndroidManifest.xml                                 | XML        |         33 |          6 |          2 |         41 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\main\java\io\flutter\app\FlutterMultiDexApplication.java | Java       |         13 |          9 |          4 |         26 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\main\res\drawable-v21\launch_background.xml              | XML        |          4 |          7 |          2 |         13 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\main\res\drawable\launch_background.xml                  | XML        |          4 |          7 |          2 |         13 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\main\res\values-night\styles.xml                         | XML        |          9 |          9 |          1 |         19 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\main\res\values\styles.xml                               | XML        |          9 |          9 |          1 |         19 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\app\src\profile\AndroidManifest.xml                              | XML        |          4 |          4 |          1 |          9 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\build.gradle                                                     | Groovy     |         28 |          0 |          5 |         33 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\gradle.properties                                                | Properties |          3 |          0 |          1 |          4 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\gradle\wrapper\gradle-wrapper.properties                         | Properties |          5 |          0 |          1 |          6 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\android\settings.gradle                                                  | Groovy     |          8 |          0 |          4 |         12 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\Runner\AppDelegate.swift                                             | Swift      |         14 |          0 |          2 |         16 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json              | JSON       |        122 |          0 |          1 |        123 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json            | JSON       |         23 |          0 |          1 |         24 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md                | Markdown   |          3 |          0 |          2 |          5 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\Runner\Base.lproj\LaunchScreen.storyboard                            | XML        |         36 |          1 |          1 |         38 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\Runner\Base.lproj\Main.storyboard                                    | XML        |         25 |          1 |          1 |         27 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\Runner\Runner-Bridging-Header.h                                      | C++        |          1 |          0 |          1 |          2 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\ios\firebase_app_id_file.json                                            | JSON       |          7 |          0 |          0 |          7 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\config_maps.dart                                                     | Dart       |          1 |          0 |          1 |          2 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\constants.dart                                                       | Dart       |         57 |          2 |          6 |         65 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\data_getter.dart                                                     | Dart       |         38 |          4 |         10 |         52 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\firebase_options.dart                                                | Dart       |         67 |         12 |          6 |         85 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\main.dart                                                            | Dart       |         23 |          1 |          5 |         29 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\DashboardPages\dashboard_loader.dart                         | Dart       |         26 |          1 |          6 |         33 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\DashboardPages\driver_booking.dart                           | Dart       |        262 |          2 |          6 |        270 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\DashboardPages\driver_scaffold.dart                          | Dart       |        282 |          3 |          7 |        292 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\DashboardPages\user_booking.dart                             | Dart       |        286 |          3 |          6 |        295 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\DashboardPages\user_scaffold.dart                            | Dart       |        521 |         23 |         27 |        571 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\auth_page.dart                                               | Dart       |         24 |          2 |          6 |         32 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\check_login_status.dart                                      | Dart       |         27 |          1 |          4 |         32 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\forgot_pw_page.dart                                          | Dart       |         96 |          3 |         10 |        109 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\signin_page.dart                                             | Dart       |        228 |         11 |         16 |        255 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\lib\screens\signup_page.dart                                             | Dart       |        565 |         29 |         35 |        629 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\linux\flutter\generated_plugin_registrant.cc                             | C++        |          3 |          4 |          5 |         12 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\linux\flutter\generated_plugin_registrant.h                              | C++        |          5 |          5 |          6 |         16 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\linux\flutter\generated_plugins.cmake                                    | CMake      |         18 |          0 |          6 |         24 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\linux\main.cc                                                            | C++        |          5 |          0 |          2 |          7 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\linux\my_application.cc                                                  | C++        |         74 |         11 |         20 |        105 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\linux\my_application.h                                                   | C++        |          7 |          7 |          5 |         19 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\macos\Flutter\GeneratedPluginRegistrant.swift                            | Swift      |         16 |          3 |          4 |         23 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\macos\Runner\AppDelegate.swift                                           | Swift      |          8 |          0 |          2 |         10 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\macos\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json            | JSON       |         68 |          0 |          1 |         69 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\macos\Runner\Base.lproj\MainMenu.xib                                     | XML        |        343 |          0 |          1 |        344 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\macos\Runner\MainFlutterWindow.swift                                     | Swift      |         12 |          0 |          4 |         16 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\macos\firebase_app_id_file.json                                          | JSON       |          7 |          0 |          0 |          7 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\pubspec.yaml                                                             | YAML       |         34 |         59 |         17 |        110 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\test\widget_test.dart                                                    | Dart       |         14 |         10 |          7 |         31 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\web\index.html                                                           | HTML       |         37 |         16 |          6 |         59 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\web\manifest.json                                                        | JSON       |         35 |          0 |          1 |         36 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\flutter\generated_plugin_registrant.cc                           | C++        |          6 |          4 |          5 |         15 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\flutter\generated_plugin_registrant.h                            | C++        |          5 |          5 |          6 |         16 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\flutter\generated_plugins.cmake                                  | CMake      |         19 |          0 |          6 |         25 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\flutter_window.cpp                                        | C++        |         45 |          4 |         13 |         62 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\flutter_window.h                                          | C++        |         20 |          5 |          9 |         34 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\main.cpp                                                  | C++        |         30 |          4 |         10 |         44 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\resource.h                                                | C++        |          9 |          6 |          2 |         17 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\utils.cpp                                                 | C++        |         53 |          2 |         10 |         65 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\utils.h                                                   | C++        |          8 |          6 |          6 |         20 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\win32_window.cpp                                          | C++        |        183 |         15 |         48 |        246 |
+| g:\2.Programming\BITS Project\quick_shift\quick_shift\windows\runner\win32_window.h                                            | C++        |         48 |         29 |         22 |         99 |
+| Total                                                                                                                          |            |      4,093 |        377 |        436 |      4,906 |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
