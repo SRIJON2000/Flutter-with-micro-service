@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,6 +18,7 @@ import 'package:quick_shift/constants.dart';
 import 'package:geocoding/geocoding.dart' as geoCoding;
 import 'package:quick_shift/data_getter.dart';
 import 'package:quick_shift/screens/DashboardPages/user_booking.dart';
+import 'package:quick_shift/screens/payment.dart';
 
 import '../auth_page.dart';
 
@@ -145,9 +147,10 @@ class _UserScaffoldState extends State<UserScaffold> {
       //List requests = [];
       int requests = int.parse(response.body);
       if (requests == 1) {
+        //print("hello");
         return 1;
       }
-      return requests + 1;
+      return requests;
     } else {
       throw Exception('Failed to load users');
     }
@@ -166,6 +169,8 @@ class _UserScaffoldState extends State<UserScaffold> {
         _formSourceValidatorKey.currentState!.validate() &&
         _formDestinationValidatorKey.currentState!.validate()) {
       int t = await get_next_request_id();
+      int v = Random().nextInt(500) + 1;
+      trans_id = v;
       final request = <String, dynamic>{
         'date': '${_datetime.day} / ${_datetime.month} / ${_datetime.year}',
         'sourceAddress': _searchSourceController.text.trim().toString(),
@@ -174,31 +179,19 @@ class _UserScaffoldState extends State<UserScaffold> {
         'extraServicesRequired': selectedOptionForExtraService,
         'vehicleType': selectedVeichletype,
         'userEmail': details[0]["email"].toString(),
-        'userName': details[0]["firstname"] + " " + details[0]["lastname"],
+        'userName': details[0]["firstname"].toString() +
+            " " +
+            details[0]["lastname"].toString(),
         'userPhoneNo': details[0]["phoneNumber"].toString(),
         'driverEmail': 'Assigning...',
         'driverName': 'Assigning...',
         'driverPhoneNo': 'Assigning...',
         'status': 'Processing',
-        'id': t,
+        'paymentstatus': '0',
+        'trans_id': v.toString(),
+        'id': t.toString(),
       };
 
-      // _request['date'] =
-      //     "${_datetime.day} / ${_datetime.month} / ${_datetime.year}";
-      // _request['sourceAddress'] =
-      //     _searchSourceController.text.trim().toString();
-      // _request['destinationAddress'] =
-      //     _searchDestinationController.text.trim().toString();
-      // _request['extraServicesRequired'] = selectedOptionForExtraService;
-      // _request['vehicleType'] = selectedVeichletype;
-      // _request['userEmail'] = user!.email;
-      // _request['usertName'] = "${user_firstname} ${user_lastname}";
-      // _request['userPhoneNo'] = user_phoneNumber.toString();
-      // _request['driverEmail'] = "Assigning...";
-      // _request['driverName'] = "Assigning...";
-      // _request['driverPhoneNo'] = "Assigning...";
-      // _request['status'] = "Processing";
-      // _request['id'] = t;
       print("request");
       print(request);
 
@@ -213,10 +206,10 @@ class _UserScaffoldState extends State<UserScaffold> {
           builder: (context) {
             return AlertDialog(
                 content: Container(
-                    height: 200,
+                    height: 150,
                     child: Column(children: [
                       const Text(
-                        "Your Request will be processed, Kindly check My Bookings for status",
+                        "Payment",
                       ),
                       const SizedBox(height: 10),
                       ElevatedButton(
@@ -224,62 +217,29 @@ class _UserScaffoldState extends State<UserScaffold> {
                             backgroundColor:
                                 Colors.deepPurple, //background color of button
                             side: const BorderSide(
-                                width: 3,
+                                width: 2,
                                 color:
                                     Colors.deepPurple), //border width and color
-                            elevation: 6, //elevation of button
+                            elevation: 3, //elevation of button
                             shape: RoundedRectangleBorder(
                                 //to set border radius to button
-                                borderRadius: BorderRadius.circular(30)),
+                                borderRadius: BorderRadius.circular(18)),
                             padding: const EdgeInsets.all(
-                                30) //content padding inside button
+                                18) //content padding inside button
                             ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UserBooking()),
-                          );
+                          Navigator.pushReplacement(context, MaterialPageRoute(
+                              builder: (BuildContext context) {
+                            return Payment();
+                          }));
                         },
-                        child: const Text("Go to my bookings"),
+                        child: const Text("Confirm & Pay"),
                       ),
                     ])));
           },
         );
       }
-      // await FirebaseFirestore.instance.collection('request').add({
-      //   'date': "${_datetime.day} / ${_datetime.month} / ${_datetime.year}",
-      //   'sourceAddress': _searchSourceController.text.trim(),
-      //   'destinationAddress': _searchDestinationController.text.trim(),
-      //   'extraServicesRequired': selectedOptionForExtraService,
-      //   'vehicleType': selectedVeichletype,
-      //   'userEmail': user!.email,
-      //   'userName': "${user_firstname} ${user_lastname}",
-      //   'userPhoneNo': user_phoneNumber,
-      //   'driverEmail': "Assigning...",
-      //   'driverName': "Assigning",
-      //   'driverPhoneNo': "Assigning",
-      //   'status': "Processing",
-      // });
-
-      //Navigator.of(context).pop();
-
-      // Show Dialog of "Your Request will be processed, Kindly check My Bookings for status"
-      // showDialog(
-      //   context: context,
-      //   builder: (context) {
-      //     return AlertDialog(
-      //         content: Text(
-      //       "Your Request will be processed, Kindly check My Bookings for Status",
-      //       textAlign: TextAlign.center,
-      //     ));
-      //   },
-      // );
     }
-    //else {
-    //   // Circular Loading Gone
-    //   Navigator.of(context).pop();
-    // }
   }
 
   @override

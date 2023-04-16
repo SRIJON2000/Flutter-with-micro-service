@@ -47,22 +47,6 @@ class _UserBookingState extends State<UserBooking> {
     }
   }
 
-  // Future updateData(String document, Map<String, dynamic> data) async {
-  //   final response = await http.put(
-  //     Uri.parse('http://localhost:8000/update/$document'),
-  //     headers: <String, String>{
-  //       'Content-Type': 'application/json; charset=UTF-8',
-  //     },
-  //     body: jsonEncode(data),
-  //   );
-
-  //   if (response.statusCode == 200) {
-  //     //return 'Data updated successfully';
-  //   } else {
-  //     throw Exception('Failed to update data');
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -292,25 +276,7 @@ class _UserBookingState extends State<UserBooking> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.grey[900],
                               ),
-                              onPressed: () {
-                                // if (request['status'].toString() == "Processing") {
-                                //   FirebaseFirestore.instance
-                                //       .collection('request')
-                                //       .doc(snap.reference.id)
-                                //       .delete();
-                                // } else {
-                                //   showDialog(
-                                //     context: context,
-                                //     builder: (context) {
-                                //       return AlertDialog(
-                                //           content: Text(
-                                //         "Your Request has been accepted, Please contact us to cancel",
-                                //         textAlign: TextAlign.center,
-                                //       ));
-                                //     },
-                                //   );
-                                // }
-                              },
+                              onPressed: () {},
                               child: Text(
                                 "Cancel SHIFT",
                                 style: TextStyle(

@@ -113,6 +113,7 @@ class _UserBookingState extends State<DriverScaffold> {
           itemCount: requests.length,
           itemBuilder: (BuildContext context, int index) {
             final request = requests[index];
+
             return Padding(
               padding: const EdgeInsets.all(12.0),
               child: Container(
@@ -266,7 +267,9 @@ class _UserBookingState extends State<DriverScaffold> {
                                   Uri.parse(
                                       // ignore: prefer_interpolation_to_compose_strings
                                       'http://localhost:8001/updaterequest/' +
-                                          request['id'].toString()),
+                                          request['id'].toString() +
+                                          '/' +
+                                          'id'),
                                   headers: {
                                     'Content-Type':
                                         'application/json; charset=UTF-8',

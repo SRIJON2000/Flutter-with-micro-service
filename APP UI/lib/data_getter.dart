@@ -1,10 +1,13 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:quick_shift/constants.dart';
 
 // Getting users Table Data
 List details = [];
+int trans_id = 0;
 late String user_firstname = '', user_phoneNumber = '', user_lastname = '';
 
 Future getUser_info() async {

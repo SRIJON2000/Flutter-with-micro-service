@@ -272,7 +272,9 @@ class _DriverBookingState extends State<DriverBooking> {
                               Uri.parse(
                                   // ignore: prefer_interpolation_to_compose_strings
                                   'http://localhost:8001/updaterequest/' +
-                                      request['id'].toString()),
+                                      request['id'].toString() +
+                                      '/' +
+                                      'id'),
                               headers: <String, String>{
                                 'Content-Type':
                                     'application/json; charset=UTF-8',
