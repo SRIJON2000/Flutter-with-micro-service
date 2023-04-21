@@ -60,7 +60,7 @@ class _PaymentState extends State<Payment> {
         "type": selectedtype,
         "trans_id": trans_id.toString(),
       };
-      final response = await http.post(
+      final response = await http.put(
         Uri.parse('http://localhost:8002/createpayment/' + trans_id.toString()),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(request),

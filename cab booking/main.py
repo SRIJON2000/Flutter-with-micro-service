@@ -87,7 +87,7 @@ async def get_next_request_id():
     # return current_id + 1
 
 
-@app.post("/createrequest")
+@app.put("/createrequest")
 async def create_request(request: dict):
     try:
         doc_ref = db.collection('request').document()

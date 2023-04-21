@@ -8,10 +8,10 @@ from google.oauth2 import service_account
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-# Replace with the path to your own service account key file
+
 service_account_key_path = "D:\SA Project\Flutter-with-micro-service\Authorization\quick-shift-5657c-firebase-adminsdk-aeix7-4107d89eb6.json"
 
-# Initialize a Firestore client
+
 credentials = service_account.Credentials.from_service_account_file(
     service_account_key_path)
 db = firestore.Client(credentials=credentials)
@@ -106,13 +106,15 @@ async def logout(email: str):
 async def get_usertype_by_id(id: str):
     request_ref = db.collection("userType")
     query_ref = request_ref.where(u'email', u'==', id)
+    query = query_ref.get()
     requests = [doc.to_dict() for doc in query_ref.stream()]
+    if len(query) == 0:
+        return "0"
     return requests[0]['type']
 
 
 async def update_user_login_status(source_column: str, source_value: str, target_column: str, target_value: str):
-    # docid = get_document_id("email", email, "users")
-    # db = firestore.Client()
+
     collection_ref = db.collection(u'users')
     query = collection_ref.where(source_column, '==', source_value).limit(1)
     docs = query.stream()
@@ -121,10 +123,6 @@ async def update_user_login_status(source_column: str, source_value: str, target
         doc_ref.update({
             target_column: target_value
         })
-
-        # return {"message": f"Successfully updated {target_column} to {target_value} where {source_column} was {source_value}."}
-
-    # return {"message": "No document found that matches the specified criteria."}
 
 
 async def update_driver_login_status(source_column: str, source_value: str, target_column: str, target_value: str):

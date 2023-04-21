@@ -195,7 +195,7 @@ class _UserScaffoldState extends State<UserScaffold> {
       print("request");
       print(request);
 
-      final response = await http.post(
+      final response = await http.put(
         Uri.parse('http://localhost:8001/createrequest'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(request),

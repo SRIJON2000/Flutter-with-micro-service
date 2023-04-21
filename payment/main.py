@@ -52,7 +52,7 @@ async def get_next_payment_id():
     # return current_id + 1
 
 
-@app.post("/createpayment/{id}")
+@app.put("/createpayment/{id}")
 async def create_request(id: str, request: dict):
 
     r = await get_confirmation_from_bank()
@@ -72,7 +72,7 @@ async def create_request(id: str, request: dict):
 
 async def get_confirmation_from_bank():
     # return random.randint(0, 1)
-    return 1
+    return 0
 
 
 # Set up RabbitMQ connection
